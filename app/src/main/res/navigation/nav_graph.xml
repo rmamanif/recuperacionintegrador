@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menu">
+
+    <fragment
+        android:id="@+id/menu"
+        android:name="tecsup.edu.recuperacionintegrador.Menu"
+        android:label="menu_fragment"
+        tools:layout="@layout/menu_fragment" />
+    <fragment
+        android:id="@+id/detalle"
+        android:name="tecsup.edu.recuperacionintegrador.Detalle"
+        android:label="detalle_fragment"
+        tools:layout="@layout/detalle_fragment" />
+</navigation>

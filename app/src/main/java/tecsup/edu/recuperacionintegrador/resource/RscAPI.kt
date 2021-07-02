@@ -22,30 +22,18 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
-
-private const val BASE_URL = "https://api.themoviedb.org/3/movie/"
-
+private const val BASE_URL = "https://api.themoviedb.org/"
 private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
-
-
 private val retrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .baseUrl(BASE_URL)
         .build()
-
-
 interface ListaApiService {
-
-    @GET("upcoming?page=1&api_key=f46b58478f489737ad5a4651a4b25079 ")
-    suspend fun getMovies(@Query("filter") type: String): List<Lista>
+    @GET("3/movie/upcoming?page=1&api_key=f46b58478f489737ad5a4651a4b25079")
+    suspend fun getMovies(): List<Lista>
 }
-
-/**
- * A public Api object that exposes the lazy-initialized Retrofit service
- */
 object ListaApi {
     val retrofitService : ListaApiService by lazy { retrofit.create(ListaApiService::class.java) }
 }
